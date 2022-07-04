@@ -15,11 +15,11 @@
 1. Install minikube(vm with docker in it)
 2. Start minikube, point cmd to docker inside minikube and use it light weight. (minikube start --vm-driver=hyperkit)
     - If some error happens on starting existing cluster,
-      `kubectl config delete-cluster minikube`
-      `minikube delete`
-      `minikube start --vm-driver=hyperkit`
-      `kubectl get svc` lists services
-      `minikube ip` shows the ip of minikube with which we can connect to it from system
+      - `kubectl config delete-cluster minikube`
+      - `minikube delete`
+      - `minikube start --vm-driver=hyperkit`
+      - `kubectl get svc` lists services
+      - `minikube ip` shows the ip of minikube with which we can connect to it from system
 
 # Pods
 1. Smallest unit of deployment
@@ -35,12 +35,12 @@
 3. To get the details of a pod
 `kubectl describe pod webapp-pod` (webapp-pod is the name of pod)
 4. To execute a command inside a pod
-`kubectl exec webapp-pod -- date`
-`kubectl exec webapp-pod -- ls`
-`kubectl exec webapp-pod -- pwd`
-`kubectl exec webapp-pod -- ifconfig`
+ - `kubectl exec webapp-pod -- date`
+ - `kubectl exec webapp-pod -- ls`
+ - `kubectl exec webapp-pod -- pwd`
+ - `kubectl exec webapp-pod -- ifconfig`
 Actual command to execute should be added after `--`
-`kubectl exec webapp-pod -- wget localhost:80` - will download index.html from fleetman web app
-`kubectl exec webapp-pod -- cat index.html`
+ - `kubectl exec webapp-pod -- wget localhost:80` - will download index.html from fleetman web app
+ - `kubectl exec webapp-pod -- cat index.html`
 5. To expose pod to outside
-`kubectl port-forward webapp-pod 30080:80` - makes the app running in 80 of pod to get exposed to 30080 of localhost. No need of minikube ip fetch now. This exposes to outside system itself.
+ - `kubectl port-forward webapp-pod 30080:80` - makes the app running in 80 of pod to get exposed to 30080 of localhost. No need of minikube ip fetch now. This exposes to outside system itself.

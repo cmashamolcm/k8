@@ -44,3 +44,19 @@ Actual command to execute should be added after `--`
  - `kubectl exec webapp-pod -- cat index.html`
 5. To expose pod to outside
  - `kubectl port-forward webapp-pod 30080:80` - makes the app running in 80 of pod to get exposed to 30080 of localhost. No need of minikube ip fetch now. This exposes to outside system itself.
+
+# Service
+1. Pods has short life. It gets killed, restarted etc. So, there should be a layer that is kind of stable. That is a service.
+2. Service has stable IP and ports.
+3. Service is under the category of `load balancer or discovery`
+4. Service is a gateway to connect to the pods in a k8 cluster. It helps pods to interact with each other.
+5. `Labels` are series of key value pairs added in Pods
+6. `Selectors` are series of key value pairs added in Service
+7. A service can detect pods with same label as selector within a cluster
+8. `Selector` comes under spec part of service yaml.
+9. `Label` comes under metadata part of pod yaml
+10. Type:
+    - clusterID - private to cluster
+    - NodePort - to expose to outside world
+11. When exposes port via nodePort in service, it is not the port forwarding. So, need to use minikube ip and then service node port to access service outside.
+12. 

@@ -59,4 +59,6 @@ Actual command to execute should be added after `--`
     - clusterID - private to cluster
     - NodePort - to expose to outside world
 11. When exposes port via nodePort in service, it is not the port forwarding. So, need to use minikube ip and then service node port to access service outside.
-12. 
+
+## ActiveMQ Pod and Service Setup:
+1. 

@@ -61,4 +61,21 @@ Actual command to execute should be added after `--`
 11. When exposes port via nodePort in service, it is not the port forwarding. So, need to use minikube ip and then service node port to access service outside.
 
 ## ActiveMQ Pod and Service Setup:
-1. 
+1. Using the image of ActiveMQ and build pod and make a service.
+
+## Replicaset:
+1. `kubectl delete pod pod-name` - deletes pod gracefully.
+2. APIs for replicaset is part of "apps" whereas pod and service apis are part of "core" which is default. So, whiledefining replicaset, we have to specify apiVersion as `apps/v1`
+3. delete:
+    - `kubectl delete rs --all` - deletes replicaset and associated pods
+    - `kubectl delete po --all`
+    - `kubectl delete svc --all`
+5. Replicaset helps to create multiple copies of pods with a `template` to maintain continuous availability of service.
+6. By default one replica gets created even if we are not specifying the `replicas` count in replicaSet yaml under spec.
+7. Whenever the pod goes down, a new one gets created.
+8. If we specify 2 as replicas, everytime k8s will maintain 2 pods up and running.
+9. ```
+    In replicaSet under spec, seletor is mandatory.
+    In selector, there is matchLabels tag. This should be matching to the labels given in spec under template(pod definition within replicaset)
+    ```
+10.
